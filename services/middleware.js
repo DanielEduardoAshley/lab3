@@ -2,10 +2,20 @@
 
 const authentication =(req, res, next)=>{
     const {token} = req.headers
+
     console.log(req.headers.token)
     UserServices.authentication(token).then((tokenCheck)=>{
         console.log(tokenCheck)
+        const {user_id} = req.params
+        const {post_id} = req.body
+        const {comment_id} = req.params
+        console.log(post_id, user_id, comment_id)
         if(tokenCheck['rows'].length > 0){
+            req.body.userid = user_id
+            req.body.postid = post_id
+            req.body.commentid = comment_id
+
+
             next()
         }
         else{

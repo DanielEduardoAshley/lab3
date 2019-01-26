@@ -37,4 +37,10 @@ return db.any('SELECT c.* FROM comments c JOIN posts p ON (c.post_id = p.id) WHE
 
 
 }
+
+PostServices.getIDfromToken=(token)=>{
+    return db.one('SELECT users.id FROM users WHERE token = ${token}', {token})
+    
+    
+    }
 module.exports = PostServices

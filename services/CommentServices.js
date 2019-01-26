@@ -13,7 +13,7 @@ return  db.any('SELECT * FROM comments WHERE comments.id = ${comment_id}', {comm
 
 
 CommentServices.update=(title, body, comment_id)=>{
-return  db.none('UPDATE comments SET  title=${title}, body=${body} WHERE comment_id =${comment_id}', {title, body, comment_id})
+return  db.none('UPDATE comments SET  title=${title}, body=${body} WHERE comments.id =${comment_id}', {title, body, comment_id})
 }
 
 

@@ -31,7 +31,7 @@ privateRouter.put('/user/:user_id', ((req,res)=>{
     const {password} = req.body
     const {user_id} = req.params
 
-
+    
     UserServices.update(username, email, password, user_id).then(()=>{
         res.json('User Updated')
     })
@@ -180,6 +180,11 @@ privateRouter.put('/comment/:comment_id', (req, res)=>{
     const {title} = req.body
     const {body} = req.body
     const {comment_id} = req.params
+    // CommentServices.read(comment_id).then((data)=>{
+        
+    // })
+    // if()
+    console.log(req.body.userid)
     CommentServices.update( title, body, comment_id)
     .then(()=>{
     res.json('Comment Updated')
